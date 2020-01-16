@@ -8,5 +8,10 @@
     "navigationBarTitleText": "map",
     "navigationBarTextStyle": "black"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为了更好地体验需要获取您的城市信息"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }
