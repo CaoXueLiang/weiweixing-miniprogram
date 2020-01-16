@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime : 2020-01-16 16:49:16
+ * @LastEditTime : 2020-01-16 17:26:59
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -17,6 +17,7 @@ Page({
     longitude: 0,
     markers:[],
     showMap:false,
+    showBottom:false,
     subKey: 'FEABZ-DL7CW-RAPRE-RBZXF-ATOO7-R6BRP',
     selectedMarker:{},
     allData:[],
@@ -71,14 +72,17 @@ Page({
         CommonManager.QQMAPSearch('商场',res.latitude,res.longitude).then(res => {
           console.log(JSON.stringify(res));
           var tmpMarker = [];
+          var tmpData = [];
           for (let index = 0; index < res.data.length; index++) {
             let element = res.data[index];
+            element['tagArray'] = element.category.split(":");
             let oneMarker = {"id":element.id,"latitude":element.location.lat,"longitude":element.location.lng,"iconPath":"https://tcjy.tangchaotv.cn/asset//index/marker_yellow2.png","width":30,"height":30,"callout":{"content":element.title,"color":'#FF650D','fontSize':13,"borderRadius":10,"padding":10},};
             tmpMarker.push(oneMarker);
+            tmpData.push(element);
           }
           that.setData({
             markers:tmpMarker,
-            allData:res.data,
+            allData:tmpData,
           });
         })
       },
@@ -128,7 +132,18 @@ Page({
     }
     this.setData({
       // markers:this.data.markers,
+      showBottom:true,
       selectedMarker: this.data.selectedMarker,
     })
   },
+
+
+  /**
+   * 点击地图
+   */
+  tapMap(){
+    this.setData({
+      showBottom:false,
+    })
+  }
 })

@@ -9,6 +9,7 @@
       markers="{{markers}}"
       bindregionchange="bindregionchangeMenthod"
       bindmarkertap="markertap"
+      bindtap = "tapMap"
       show-location
     >
     <cover-image class="coverImage" src="../image/center-location.png"></cover-image>
@@ -18,11 +19,14 @@
     <!-- 扫码图片 -->
     <cover-image class="scan_image" src="../image/home_charge_QRCode.png" bindtap = "scanCode"></cover-image>
     <!-- 地点详情 -->
-    <view class="bottom_contain_view">
+    <view wx:if='{{showBottom}}' class="bottom_contain_view">
        <view  class="font_18_black">{{selectedMarker.title}}</view>
        <view  class="font_13_999999" style="margin-top: 4rpx;margin-bottom: 4rpx;">电话: {{selectedMarker.tel}}</view>
        <view  class="font_13_666666">{{selectedMarker.address}}</view>
-       <view class=""></view>
-         
+       <view class="flex_row_wrap">
+        <block wx:for="{{selectedMarker.tagArray}}">
+          <view class="tag_style {{index > 0 ? 'margin_left_10':''}}">{{item}}</view>
+        </block>
+       </view>  
     </view>
 </view>

@@ -35,7 +35,7 @@
 }
 
 .font_18_black{
-  font-size: 36rpx;
+  font-size: 38rpx;
   color: black;
 }
 
@@ -47,4 +47,31 @@
 .font_13_999999{
   font-size: 26rpx;
   color: #999999;
+}
+
+.flex_row_wrap{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.tag_style{
+  height: 34rpx;
+  line-height: 34rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  text-align: center;
+  border-radius: 17rpx;
+  border-style: solid;
+  border-width: 2rpx;
+  border-color: #999999;
+  color: #666666;
+  font-size: 24rpx;
+}
+
+.margin_left_10{
+  margin-left: 10rpx;
 }
