@@ -17,4 +17,12 @@
     <cover-image class="location_image" src="../image/mapLocation_normal.png" bindtap = "moveToLocation"></cover-image>
     <!-- 扫码图片 -->
     <cover-image class="scan_image" src="../image/home_charge_QRCode.png" bindtap = "scanCode"></cover-image>
+    <!-- 地点详情 -->
+    <view class="bottom_contain_view">
+       <view  class="font_18_black">{{selectedMarker.title}}</view>
+       <view  class="font_13_999999" style="margin-top: 4rpx;margin-bottom: 4rpx;">电话: {{selectedMarker.tel}}</view>
+       <view  class="font_13_666666">{{selectedMarker.address}}</view>
+       <view class=""></view>
+         
+    </view>
 </view>

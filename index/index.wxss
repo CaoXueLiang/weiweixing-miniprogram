@@ -22,3 +22,29 @@
   bottom: 40rpx;
   left: calc(50% - 40px);
 }
+
+.bottom_contain_view{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 30rpx;
+}
+
+.font_18_black{
+  font-size: 36rpx;
+  color: black;
+}
+
+.font_13_666666{
+  font-size: 26rpx;
+  color: #555555;
+}
+
+.font_13_999999{
+  font-size: 26rpx;
+  color: #999999;
+}

@@ -1,5 +1,16 @@
+/*
+ * @Author: your name
+ * @Date: 2020-01-15 14:36:07
+ * @LastEditTime : 2020-01-16 15:54:46
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
+ */
 
 let QQMapWX = require('./qqmap-wx-jssdk')
+let qqmapsdk = new QQMapWX({
+  key: 'FEABZ-DL7CW-RAPRE-RBZXF-ATOO7-R6BRP'
+});
 
 module.exports = {
   /**
@@ -27,9 +38,6 @@ module.exports = {
    * 腾讯地图定位
    */
   QQMAPLocation:function(){
-    let qqmapsdk = new QQMapWX({
-        key: 'FEABZ-DL7CW-RAPRE-RBZXF-ATOO7-R6BRP'
-    });
     return new Promise((resolve, reject) => {
         wx.getLocation({
             type: "wgs84",
@@ -56,6 +64,27 @@ module.exports = {
             }); 
         })
     });
+},
+
+ /**
+   * 腾讯地图搜索
+   */
+  QQMAPSearch:function(key,lat,lon){
+    return new Promise((resolve,reject) => {
+      qqmapsdk.search({
+          keyword: key,
+          location: {
+              latitude: lat,
+              longitude: lon,
+          },
+          success: function (res) {
+              resolve(res);
+          },
+          fail:(res) => {
+              reject(res);
+          }
+      }); 
+  })
 },
 
 }
