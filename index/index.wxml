@@ -15,9 +15,9 @@
     <cover-image class="coverImage" src="../image/center-location.png"></cover-image>
     </map>
     <!-- 定位图片 -->
-    <cover-image class="location_image" src="../image/mapLocation_normal.png" bindtap = "moveToLocation"></cover-image>
+    <image class="location_image" src="../image/mapLocation_normal.png" bindtap = "moveToLocation"></image>
     <!-- 扫码图片 -->
-    <cover-image class="scan_image" src="../image/home_charge_QRCode.png" bindtap = "scanCode"></cover-image>
+    <image class="scan_image" src="../image/home_charge_QRCode.png" bindtap = "scanCode"></image>
     <!-- 地点详情 -->
     <view wx:if='{{showBottom}}' class="bottom_contain_view">
        <view  class="font_18_black">{{selectedMarker.title}}</view>

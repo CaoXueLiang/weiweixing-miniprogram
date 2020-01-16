@@ -32,6 +32,7 @@
   flex-direction: column;
   background-color: #ffffff;
   padding: 30rpx;
+  z-index: 99999999999;
 }
 
 .font_18_black{
