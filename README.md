@@ -1,4 +1,4 @@
 # weiweixing-miniprogram
 微微行小程序
 
-https://mp.weixin.qq.com/cgi-bin/filepage?type=2&begin=0&count=12&token=2023876342&lang=zh_CN
+https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib69XN2bBGgSK7WbYEwibgrEfEPB5zXdXPmM9NhQAGPcgT2xmMwODg8icp6wszSp7NofbpghjI6E6CuLesSeytQ7A/0?wx_fmt=jpeg
