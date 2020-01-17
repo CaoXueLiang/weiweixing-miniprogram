@@ -1,4 +1,3 @@
 # weiweixing-miniprogram
 微微行小程序
 
-https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib69XN2bBGgSK7WbYEwibgrEfEPB5zXdXPmM9NhQAGPcgT2xmMwODg8icp6wszSp7NofbpghjI6E6CuLesSeytQ7A/0?wx_fmt=jpeg
