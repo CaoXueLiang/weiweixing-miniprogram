@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-15 14:36:07
- * @LastEditTime : 2020-01-16 15:54:46
+ * @LastEditTime : 2020-01-17 15:38:04
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
@@ -40,7 +40,7 @@ module.exports = {
   QQMAPLocation:function(){
     return new Promise((resolve, reject) => {
         wx.getLocation({
-            type: "wgs84",
+            type: "gcj02",
             success: (res) => {
                 resolve(res);
             },
