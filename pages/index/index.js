@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime : 2020-01-21 11:03:45
+ * @LastEditTime : 2020-01-21 11:23:17
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -107,7 +107,7 @@ Page({
   */
  distabceFilterMenthod(){
    this.setData({
-    fiterDistanceIsSelected:true,
+    fiterDistanceIsSelected:!this.data.fiterDistanceIsSelected,
     fiterChargeTypeIsSelected:false,
     fiterPerferenceIsSelected:false,
    })
@@ -119,7 +119,7 @@ Page({
  typeFilterMenthod(){
   this.setData({
     fiterDistanceIsSelected:false,
-    fiterChargeTypeIsSelected:true,
+    fiterChargeTypeIsSelected:!this.data.fiterChargeTypeIsSelected,
     fiterPerferenceIsSelected:false,
    })
  },
@@ -131,7 +131,7 @@ Page({
   this.setData({
     fiterDistanceIsSelected:false,
     fiterChargeTypeIsSelected:false,
-    fiterPerferenceIsSelected:true,
+    fiterPerferenceIsSelected:!this.data.fiterPerferenceIsSelected,
    })
  },
 
@@ -156,15 +156,18 @@ Page({
   */
  clickedDistanceItem(e){
   let currentIndex = e.currentTarget.dataset.currentindex;
+  let selectedItem = '';
   for (let index = 0; index < this.data.distanceArray.length; index++) {
     let element = this.data.distanceArray[index];
     if (index == currentIndex) {
       element.isSelected = true;
+      selectedItem = element.name;
     } else {
       element.isSelected = false;
     }
   }
   this.setData({
+    fiterDistance:selectedItem,
     distanceArray:this.data.distanceArray,
   })
  },

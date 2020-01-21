@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-01-19 17:22:38
- * @LastEditTime : 2020-01-21 11:15:27
+ * @LastEditTime : 2020-01-21 11:23:42
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/index/index.wxml
@@ -20,7 +20,7 @@
       bindtap = "tapMap"
       show-location
     >
-    <cover-image class="coverImage" src="../../image/center-location.png"></cover-image>
+    <image class="coverImage" src="../../image/center-location.png"></image>
     </map>
    
     <!-- search视图 -->

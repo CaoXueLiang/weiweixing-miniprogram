@@ -32,7 +32,6 @@
   flex-direction: column;
   background-color: #ffffff;
   padding: 30rpx;
-  z-index: 99999999999;
 }
 
 .font_18_black{
@@ -254,10 +253,12 @@
 
 .scrollow_perfence_contain{
   width: 100%;
-  height: 100%;
+  margin-bottom: 90rpx;
   display: flex;
   flex-direction: column;
   background-color: white;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
 }
 
 .bottom_button_contain{
@@ -295,7 +296,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border-color: rgb(248, 248, 248);
+  border-color: rgb(240, 240, 240);
   border-style: solid;
   border-width: 2rpx;
   height: 200rpx;
