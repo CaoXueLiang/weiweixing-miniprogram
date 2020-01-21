@@ -233,7 +233,6 @@
 }
 
 .filter_tag_selected{
-  color: #666666;
   background-color: rgb(225, 251, 243);
   border-color: rgb(0, 200, 245);
   color: rgb(0, 200, 245);

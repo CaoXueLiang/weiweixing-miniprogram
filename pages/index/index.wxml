@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-01-19 17:22:38
- * @LastEditTime : 2020-01-21 11:23:42
+ * @LastEditTime : 2020-01-21 14:24:00
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/index/index.wxml
@@ -109,21 +109,21 @@
 </view>
 
 <!-- 偏好设置筛选弹窗 -->
-<view wx:if='{{fiterPerferenceIsSelected}}' class="dialog-mask" bindtap = "hideWindow">
+<view wx:if='{{fiterPerferenceIsSelected}}' class="dialog-mask" >
   <scroll-view class="scrollow_perfence_contain" scroll-x="false" scroll-y="true">
     <block wx:for="{{perfenenceArray}}">
       <view style="margin-bottom: 40rpx;">
         <view style="color: #999999;font-size: 26rpx;margin-left: 20rpx;">{{item.name}}</view>
         <view style="display: flex;flex-wrap: wrap;">
           <block wx:for="{{item.listArray}}">
-             <text class="filter_tag_normal color_333333 {{item.isSelected ? 'filter_tag_selected' : ''}}" style="margin-top: 20rpx;">{{item.name}}</text>
+             <text class="filter_tag_normal {{item.isSelected ? 'filter_tag_selected' : ''}}" style="margin-top: 20rpx;" data-currentElement="{{item}}"  bindtap = "tapFilterItem">{{item.name}}</text>
           </block>
         </view>
       </view>
     </block>
   </scroll-view>
   <view class="bottom_button_contain">
-     <view class="button_item" style="color: black;">清空</view>
-     <view class="button_item" style="background-color: rgb(0,200,245);color: white;">确定</view>
+     <view class="button_item" style="color: black;" bindtap = "clearFiterMenthod">清空</view>
+     <view class="button_item" style="background-color: rgb(0,200,245);color: white;" bindtap = "confirmMenthod">确定</view>
   </view>
 </view>

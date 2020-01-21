@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime : 2020-01-21 11:23:17
+ * @LastEditTime : 2020-01-21 14:21:39
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -207,6 +207,55 @@ Page({
     chargeTypeTwoSelected:true,
     fiterChargeType:'个人桩',
   })
+ },
+
+
+ /**
+  *偏好设置选择标签
+  *
+  * @param {*} e
+  */
+ tapFilterItem(e){
+   console.log(JSON.stringify(e));
+   let currentElement = e.currentTarget.dataset.currentelement;
+  for (let index = 0; index < this.data.perfenenceArray.length; index++) {
+    let element = this.data.perfenenceArray[index];
+    for (let index = 0; index < element.listArray.length; index++) {
+      let tmpElement = element.listArray[index];
+      if (tmpElement.name == currentElement.name) {
+        tmpElement.isSelected = !tmpElement.isSelected
+      }
+    }
+  }
+  this.setData({
+    perfenenceArray:this.data.perfenenceArray,
+  })
+ },
+
+ /**
+  *清空选择
+  *
+  */
+ clearFiterMenthod(){
+   for (let index = 0; index < this.data.perfenenceArray.length; index++) {
+     let element = this.data.perfenenceArray[index];
+     for (let index = 0; index < element.listArray.length; index++) {
+       let tmpElement = element.listArray[index];
+       tmpElement.isSelected = false;
+     }
+   }
+   this.setData({
+     perfenenceArray:this.data.perfenenceArray,
+   })
+   this.hideWindow();
+ },
+
+ /**
+  *确认选择
+  *
+  */
+ confirmMenthod(){
+  this.hideWindow();
  },
  
  /**
