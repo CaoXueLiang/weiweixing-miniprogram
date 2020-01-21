@@ -1,0 +1,129 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-19 17:22:38
+ * @LastEditTime : 2020-01-21 11:15:27
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /weiweixing-miniprogram/pages/index/index.wxml
+ -->
+
+<view wx:if='{{showMap}}' class="container">
+    <map
+      id="myMap"
+      subkey="{{subKey}}"
+      style='width: 100%;height: 100vh;'
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      bindregionchange="bindregionchangeMenthod"
+      bindmarkertap="markertap"
+      bindtap = "tapMap"
+      show-location
+    >
+    <cover-image class="coverImage" src="../../image/center-location.png"></cover-image>
+    </map>
+   
+    <!-- search视图 -->
+    <view class="search_contain">
+      <image class="touxiang_image" src="../../image/touxiang-2.png" mode="aspectFill" bindtap = "clickedAvatar"></image>
+      <view class="search_label_contain" bindtap = "clickedSearch">
+         <image class="search_image" src="../../image/sousuo.png" mode="aspectFill"></image>
+         <view class="font_13" style="margin-left: 20rpx;">输入目的地/电站名</view>
+      </view>
+      <image class="gengduo_image" src="../../image/gengduo-5.png" mode="aspectFill" bindtap = "clickedmore"></image>
+    </view>
+    <!-- 筛选视图 -->
+    <view class="filter_three_contain">
+      <view class="filter_item" bindtap = "distabceFilterMenthod">
+         <view class="filter_label_normal {{fiterDistanceIsSelected ? 'filter_label_selected' : ''}}">距您{{fiterDistance}}</view>
+         <image wx:if='{{!fiterDistanceIsSelected}}' class="filter_image" src="../../image/down_arrow.png" mode="aspectFill"/>
+         <image wx:if='{{fiterDistanceIsSelected}}' class="filter_image" src="../../image/up_arrow.png" mode="aspectFill"/>
+      </view>
+      <view class="filter_item ver_lineView" bindtap = "typeFilterMenthod">
+        <view class="filter_label_normal {{fiterChargeTypeIsSelected ? 'filter_label_selected' : ''}}">{{fiterChargeType}}</view>
+        <image wx:if='{{!fiterChargeTypeIsSelected}}' class="filter_image" src="../../image/down_arrow.png" mode="aspectFill"/>
+         <image wx:if='{{fiterChargeTypeIsSelected}}' class="filter_image" src="../../image/up_arrow.png" mode="aspectFill"/>
+      </view>
+      <view class="filter_item" bindtap = "perfenceFilterMenthod">
+        <view class="filter_label_normal {{fiterPerferenceIsSelected ? 'filter_label_selected' : ''}}">{{fiterPerference}}</view>
+        <image wx:if='{{!fiterPerferenceIsSelected}}' class="filter_image" src="../../image/down_arrow.png" mode="aspectFill"/>
+        <image wx:if='{{fiterPerferenceIsSelected}}' class="filter_image" src="../../image/up_arrow.png" mode="aspectFill"/>
+      </view>
+    </view>
+    <!-- 滑动筛选 -->
+    <view class="scrollow_contain">
+      <scroll-view class="scrollow_filter_view" scroll-x="true">
+        <block wx:for="{{filterArray}}">
+          <text class="filter_tag_normal {{item.isSelected ? 'filter_tag_selected' : ''}}" data-clickedIndex="{{index}}" bindtap = "clickedTagMenthod">{{item.name}}</text>
+        </block>
+    </scroll-view>
+    </view>
+      
+    <!-- 定位图片 -->
+    <image class="location_image" src="../../image/mapLocation_normal.png" bindtap = "moveToLocation"></image>
+    <!-- 扫码图片 -->
+    <view class="saoma_contain" bindtap = "scanCode">
+      <image class="saoma_image" src="../../image/saoma.png" mode="aspectFill"/>
+      <view class="font_16_ffffff">扫码充电</view>
+    </view>
+    <!-- 地点详情 -->
+    <view wx:if='{{showBottom}}' class="bottom_contain_view">
+       <view  class="font_18_black">{{selectedMarker.title}}</view>
+       <view  class="font_13_999999" style="margin-top: 4rpx;margin-bottom: 4rpx;">电话: {{selectedMarker.tel}}</view>
+       <view  class="font_13_666666">{{selectedMarker.address}}</view>
+       <view class="flex_row_wrap">
+        <block wx:for="{{selectedMarker.tagArray}}">
+          <view class="tag_style {{index > 0 ? 'margin_left_10':''}}">{{item}}</view>
+        </block>
+       </view>  
+    </view>
+</view>
+
+<!-- 距离筛选弹窗 -->
+<view wx:if='{{fiterDistanceIsSelected}}' class="dialog-mask" bindtap = "hideWindow">
+  <view class="distance_contain">
+    <block wx:for="{{distanceArray}}">
+        <text class="filter_tag_normal {{item.isSelected ? 'filter_tag_selected' : ''}}" style="margin-bottom: 20rpx;" data-currentindex="{{index}}" bindtap = "clickedDistanceItem">{{item.name}}</text>
+    </block>
+  </view>
+</view>
+
+<!-- 充电站类型筛选弹窗 -->
+<view wx:if='{{fiterChargeTypeIsSelected}}' class="dialog-mask" bindtap = "hideWindow">
+  <view class="chargeType_contain">
+    <view class="chargeType_item {{chargeTypeOneSelected ? 'border_color_selected' : ''}}" bindtap = "chargeTypeSelectedOne">
+      <image class="image_128" src="../../image/chongdianzhuang.png" mode="aspectFill"></image>
+      <view class="flex_column" style="margin-left: 40rpx;">
+        <text class="font_18 {{chargeTypeOneSelected ? 'selected_color' : ''}}">充电站</text>
+        <text class="font_14 {{chargeTypeOneSelected ? 'selected_color' : ''}}" style="margin-top: 10rpx;">充电桩群，含特来电和其他互通互联充电站</text>
+      </view>
+    </view>
+    <view class="chargeType_item {{chargeTypeTwoSelected ? 'border_color_selected' : ''}}" style="margin-top: 20rpx;" bindtap = "chargeTypeSelectedTwo">
+      <image class="image_128" src="../../image/gerenzhongxin.png" mode="aspectFill"></image>
+      <view class="flex_column" style="margin-left: 40rpx;">
+        <text class="font_18 {{chargeTypeTwoSelected ? 'selected_color' : ''}}">个人桩</text>
+        <text class="font_14 {{chargeTypeTwoSelected ? 'selected_color' : ''}}" style="margin-top: 10rpx;">私人共享的充电桩，通过预约或联系桩主启动充电</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 偏好设置筛选弹窗 -->
+<view wx:if='{{fiterPerferenceIsSelected}}' class="dialog-mask" bindtap = "hideWindow">
+  <scroll-view class="scrollow_perfence_contain" scroll-x="false" scroll-y="true">
+    <block wx:for="{{perfenenceArray}}">
+      <view style="margin-bottom: 40rpx;">
+        <view style="color: #999999;font-size: 26rpx;margin-left: 20rpx;">{{item.name}}</view>
+        <view style="display: flex;flex-wrap: wrap;">
+          <block wx:for="{{item.listArray}}">
+             <text class="filter_tag_normal color_333333 {{item.isSelected ? 'filter_tag_selected' : ''}}" style="margin-top: 20rpx;">{{item.name}}</text>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="bottom_button_contain">
+     <view class="button_item" style="color: black;">清空</view>
+     <view class="button_item" style="background-color: rgb(0,200,245);color: white;">确定</view>
+  </view>
+</view>

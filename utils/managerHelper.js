@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-15 14:36:07
- * @LastEditTime : 2020-01-17 15:38:04
+ * @LastEditTime : 2020-01-19 17:24:47
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
