@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/personCenter/personCenter",
+    "pages/chargePileDetail/chargePileDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,5 +16,8 @@
       "desc": "为了更好地体验需要获取您的城市信息"
     }
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-rate": "@vant/weapp/rate"
+  }
 }

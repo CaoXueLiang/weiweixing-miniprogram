@@ -1,0 +1,66 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-21 17:39:15
+ * @LastEditTime : 2020-01-22 17:13:05
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /weiweixing-miniprogram/pages/chargePileDetail/chargePileDetail.wxml
+ -->
+<!--pages/chargePileDetail/chargePileDetail.wxml-->
+<scroll-view class="scrollow_contain" scroll-x="false" scroll-y="true">
+    <view class="flex_between" style="padding-left: 20rpx;padding-right: 20rpx;margin-top: 20rpx;">
+        <view class="flex_column">
+            <view class="font_18_333333">{{chargeDetail.data.stationName}}</view>
+            <view class="font_13_999999" style="margin-top: 10rpx;">{{chargeDetail.data.lastChargeTime}}有人成功充过电</view>
+            <view class="flex_row" style="align-items: center;">
+                <van-rate value="{{chargeDetail.data.score}}" size="{{ 14 }}" gutter="{{2}}" allow-half color="#ffd21e" void-color="#eee" void-icon="star" readonly="true"/>
+                <view class="font_13_999999">{{chargeDetail.data.score}}分(根据近半年评分计算)</view>
+            </view>
+        </view>
+        <view class="flex_center" style="align-items: center;">
+            <image class="chargeimage_style" src="{{chargeDetail.data.defaultImg}}" mode="aspectFill" bindtap = "preImageMenthod">
+                <text class="number_tag">{{chargeDetail.data.imageSize}}</text>
+            </image>
+            <view class="line_view" style="margin-left: 20rpx;margin-right: 20rpx;"></view>
+            <view class="like_containe_style" style="align-items: center;">
+                <image class="likeImage" src="../../image/shoucangxing.png" mode="aspectFill"></image>
+                <text class="font_12_999999" style="text-align: center;">收藏</text>
+            </view>
+        </view>
+    </view>
+    <view class="font_13_666666 padding_left_right" style="margin-top: 20rpx;">{{chargeDetail.data.positionDesc}}</view>
+    <view class="font_12_999999 padding_left_right" style="font-size: 26rpx;">距我{{chargeDetail.data.distance}}</view>
+    <view class="hor_line_view"></view>
+    <view style="display: flex;justify-content: flex-start;flex-wrap: wrap;padding-bottom: 20rpx;">
+        <block wx:for="{{chargeDetail.data.tagsNew}}">
+            <view class="filter_tag_normal" style="margin-top: 14rpx;">{{item.tagLabel}}</view>
+        </block>
+    </view>
+    <view style="background-color: #f2f2f2;height: 30rpx;"></view>
+    <view class="segement_contain">
+        <block wx:for="{{segmentArray}}">
+            <text class="segment_label_normal {{item.isSelected ? 'segment_label_selected' : ''}}" data-item="{{index}}" bindtap = "switchMenthod">{{item.name}}</text>
+        </block>
+    </view>
+
+    <!-- 电站信息 -->
+    <view style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;">
+        <view class="font_18_333333" style="font-size: 40rpx;margin-top: 30rpx;margin-bottom: 30rpx;">价格信息</view>
+        <view style="font-size: 40rpx;color: orange;">1.8500<text style="font-size: 26rpx;color: #666666;">元/度</text></view>
+        <view class="flex_row">
+            <text class="label_tag">15:00开始 1.3500元/度</text>
+        </view>
+        <view style="display: flex;justify-content: flex-start;">
+            <view>停车参考价</view>
+            <view>参考价格：使用特来电APP进行启动充电的客户，限时免费两小时，超出按10元/小时(如遇场站停车收费系统异常等故障，以实际收取稳准)</view>
+        </view>
+        <view class="hor_line_view"></view>
+        <view  style="font-size: 40rpx;">电站信息</view>
+        <view>营业时间<text class="">周一至周日00:00-24:00</text></view>
+        <view>服务提供<text class="">北汽特来电</text></view>
+        <view>服务电话<text class="">4001-300-001</text></view>
+        <view style="font-size: 40rpx;">爱车认证</view>
+        <view>爱车认证<text class="">快来认证爱车赚积分</text></view>
+    </view>
+</scroll-view>
+  

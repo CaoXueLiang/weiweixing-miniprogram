@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-01-19 17:22:38
- * @LastEditTime : 2020-01-21 14:24:00
+ * @LastEditTime : 2020-01-21 16:24:45
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/index/index.wxml
@@ -66,16 +66,24 @@
       <image class="saoma_image" src="../../image/saoma.png" mode="aspectFill"/>
       <view class="font_16_ffffff">扫码充电</view>
     </view>
+
     <!-- 地点详情 -->
-    <view wx:if='{{showBottom}}' class="bottom_contain_view">
-       <view  class="font_18_black">{{selectedMarker.title}}</view>
-       <view  class="font_13_999999" style="margin-top: 4rpx;margin-bottom: 4rpx;">电话: {{selectedMarker.tel}}</view>
-       <view  class="font_13_666666">{{selectedMarker.address}}</view>
-       <view class="flex_row_wrap">
+    <view wx:if='{{showBottom}}' class="bottom_contain_view" bindtap = "goToDetailMenthod">
+      <view class="font_18_black">{{selectedMarker.title}}</view>
+      <view style="display: flex;justify-content: flex-start;align-items: center;">
+        <van-rate value="{{chargePoleDetail.data.score}}" size="{{ 14 }}" gutter="{{2}}" allow-half color="#ffd21e" void-color="#eee" void-icon="star" readonly="true"/>
+        <view class="font_13_999999">{{chargePoleDetail.data.score}}分 <text> </text>|<text> </text> 最近充电{{chargePoleDetail.data.lastChargeTime}} <text> </text>|<text> </text> {{chargePoleDetail.data.businessDistrict}} {{chargePoleDetail.data.distance}}</view>
+      </view>
+      <view style="display: flex;justify-content: flex-start;align-items: center;">
+        <view class="font_13_666666">{{chargePoleDetail.data.stationAddress}}</view>
+        <image style="width: 40rpx;height: 40rpx;margin-left: 20rpx;" src="../../image/daohang.png" mode="aspectFill" data-item="{{selectedMarker}}" bindtap = "daohangMenthod"></image>
+      </view>
+      <view class="flex_row_wrap">
         <block wx:for="{{selectedMarker.tagArray}}">
           <view class="tag_style {{index > 0 ? 'margin_left_10':''}}">{{item}}</view>
         </block>
-       </view>  
+      </view>  
+      <image style="position: absolute;right: 40rpx;width: 120rpx;height: 120rpx;top: -50rpx;" src="../../image/saomiao_image.png" mode="aspectFill" bindtap = "scanCode"></image>
     </view>
 </view>
 
