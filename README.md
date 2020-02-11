@@ -1,7 +1,7 @@
 # weiweixing-miniprogram
 微微行小程序
 
-![小程序码](https://i.postimg.cc/nzjd9b1S/gh-07793b7af475-258.jpg)
+![小程序码](https://postimg.cc/xkCn5pp1)
 ![](https://i.postimg.cc/2132k4VK)
 
 ![](https://i.postimg.cc/0bkV3gxx)
