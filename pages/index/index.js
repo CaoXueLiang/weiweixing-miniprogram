@@ -2,7 +2,7 @@
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
  * @LastEditTime : 2020-01-21 17:41:51
- * @LastEditors  : Please set LastEditors
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
  */
@@ -30,6 +30,7 @@ Page({
     fiterPerferenceIsSelected:false,
     chargeTypeOneSelected:true,
     chargeTypeTwoSelected:false,
+    isShowToast:false, //是否显示提示框
     distanceArray:[
       {name:'1km',isSelected:false},
       {name:'2km',isSelected:false},
@@ -40,7 +41,8 @@ Page({
       {name:'30km',isSelected:false},
       {name:'50km',isSelected:false},
       {name:'100km',isSelected:false},
-      {name:'200km',isSelected:false},], 
+      {name:'200km',isSelected:false},
+    ], 
     filterArray:[
       {name:'精品站',isSelected:true},
       {name:'对外开放',isSelected:true},
@@ -48,7 +50,8 @@ Page({
       {name:'自营',isSelected:false},
       {name:'快充',isSelected:false},
       {name:'终端空闲',isSelected:false},
-      {name:'车位空闲',isSelected:false},],
+      {name:'车位空闲',isSelected:false},
+    ],
     perfenenceArray:[
       {name:'推荐电站',listArray:[{name:'精品站',isSelected:false}]},
       {name:'电站类型',listArray:[{name:'对外开放',isSelected:false},{name:'不对外开放',isSelected:false},]},
@@ -59,7 +62,7 @@ Page({
       {name:'停车场',listArray:[{name:'露天',isSelected:false},{name:'非露天',isSelected:false},{name:'地上',isSelected:false},{name:'地下',isSelected:false},]},
       {name:'营业时间',listArray:[{name:'24小时',isSelected:false},{name:'营业中',isSelected:false},{name:'时间不确定',isSelected:false}]},
       {name:'充电接口',listArray:[{name:'国际2011',isSelected:false},{name:'国际2015',isSelected:false}]},
-    ]
+    ],
   },
 
   onReady: function (e) {
@@ -84,7 +87,7 @@ Page({
   * 点击头像
   */
  clickedAvatar(){
-
+    CommonManager.ShowMessage(this,'错误提示弹窗');
  },
 
  /**

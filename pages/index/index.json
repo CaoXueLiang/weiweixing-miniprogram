@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "仿写特来电小程序"
+    "navigationBarTitleText": "仿写特来电小程序",
+    "usingComponents": {
+        "my-toast":"../../component/myToast/myToast"
+    }
 }

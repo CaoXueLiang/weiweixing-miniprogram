@@ -1,0 +1,4 @@
+
+<view class="toast_contain {{isShowToast ? 'animation_css' : ''}}">
+    <text class="text_tip">{{message}}</text>
+</view>

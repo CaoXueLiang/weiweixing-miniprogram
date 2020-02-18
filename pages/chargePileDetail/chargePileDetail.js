@@ -32,6 +32,9 @@ Page({
        {name1:'201号直流(1101050477201)',name2:'车位号无',name3:'50kw-150kw',name4:'250v-750v',name5:'直流快充',name6:'国标2015',progress:'23%',status:'充电中',percent:0.23},
        {name1:'201号直流(1101050477201)',name2:'车位号无',name3:'50kw-150kw',name4:'250v-750v',name5:'直流快充',name6:'国标2015',progress:'0',status:'空闲'},
      ],
+     commentArray:[
+       
+     ],
   },
 
   /**

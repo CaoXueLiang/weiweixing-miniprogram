@@ -1,0 +1,30 @@
+/* component/myToast/myToast.wxss */
+
+.toast_contain{
+    position: absolute;
+    width: 100%;
+    height: 50rpx;
+    top: -50rpx;
+    left: 0rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: indianred;
+}
+
+.text_tip{
+    color: white;
+    font-size: 26rpx;
+}
+
+.animation_css{
+    animation-name: myfirst;
+    animation-duration: 1.0s;
+    animation-timing-function: ease;
+}
+
+@keyframes myfirst{
+    0%   {top:-50rpx;}
+    50%   {top:0rpx;}
+    100%   {top:-50rpx;}
+}
