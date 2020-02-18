@@ -1,35 +1,29 @@
-<!--
- * @Author: your name
- * @Date: 2020-01-21 17:39:15
- * @LastEditTime : 2020-01-22 17:13:05
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /weiweixing-miniprogram/pages/chargePileDetail/chargePileDetail.wxml
- -->
-<!--pages/chargePileDetail/chargePileDetail.wxml-->
+
 <scroll-view class="scrollow_contain" scroll-x="false" scroll-y="true">
     <view class="flex_between" style="padding-left: 20rpx;padding-right: 20rpx;margin-top: 20rpx;">
         <view class="flex_column">
-            <view class="font_18_333333">{{chargeDetail.data.stationName}}</view>
+            <view class="font_18_333333" style="font-size: 32rpx;">{{chargeDetail.data.stationName}}</view>
             <view class="font_13_999999" style="margin-top: 10rpx;">{{chargeDetail.data.lastChargeTime}}有人成功充过电</view>
             <view class="flex_row" style="align-items: center;">
-                <van-rate value="{{chargeDetail.data.score}}" size="{{ 14 }}" gutter="{{2}}" allow-half color="#ffd21e" void-color="#eee" void-icon="star" readonly="true"/>
-                <view class="font_13_999999">{{chargeDetail.data.score}}分(根据近半年评分计算)</view>
+                <van-rate value="{{chargeDetail.data.score}}" size="{{ 10 }}" gutter="{{2}}" allow-half color="#ff9a00" void-color="#eee" void-icon="star" readonly="true"/>
+                <view class="font_13_999999">{{chargeDetail.data.score}}分</view>
             </view>
         </view>
-        <view class="flex_center" style="align-items: center;">
-            <image class="chargeimage_style" src="{{chargeDetail.data.defaultImg}}" mode="aspectFill" bindtap = "preImageMenthod">
-                <text class="number_tag">{{chargeDetail.data.imageSize}}</text>
-            </image>
-            <view class="line_view" style="margin-left: 20rpx;margin-right: 20rpx;"></view>
-            <view class="like_containe_style" style="align-items: center;">
-                <image class="likeImage" src="../../image/shoucangxing.png" mode="aspectFill"></image>
-                <text class="font_12_999999" style="text-align: center;">收藏</text>
+        <view style=" margin-left: 40rpx;display: flex;flex-direction: column;">
+            <view class="flex_center" style="align-items: center;">
+                <image class="chargeimage_style" src="{{chargeDetail.data.defaultImg}}" mode="aspectFill" bindtap = "preImageMenthod">
+                    <text class="number_tag">{{chargeDetail.data.imageSize}}</text>
+                </image>
+                <view class="line_view" style="margin-left: 20rpx;margin-right: 20rpx;"></view>
+                <view class="like_containe_style" style="align-items: center;">
+                    <image class="likeImage" src="../../image/shoucangxing.png" mode="aspectFill"></image>
+                    <text class="font_12_999999" style="text-align: center;width: 50rpx;margin-top: 10rpx;">收藏</text>
+                </view>
             </view>
         </view>
     </view>
     <view class="font_13_666666 padding_left_right" style="margin-top: 20rpx;">{{chargeDetail.data.positionDesc}}</view>
-    <view class="font_12_999999 padding_left_right" style="font-size: 26rpx;">距我{{chargeDetail.data.distance}}</view>
+    <view class="font_12_999999 padding_left_right" style="font-size: 26rpx;margin-top: 6rpx;">距我{{chargeDetail.data.distance}}</view>
     <view class="hor_line_view"></view>
     <view style="display: flex;justify-content: flex-start;flex-wrap: wrap;padding-bottom: 20rpx;">
         <block wx:for="{{chargeDetail.data.tagsNew}}">
@@ -43,24 +37,70 @@
         </block>
     </view>
 
+   <!-- 
+    1. hidden元素对块状布局才生效，所以这段代码里导致hidden没生效的罪魁祸首是display:flex
+    2. hidden 隐藏布局，虽然隐藏了，但是还是会占空间。
+    3. display:none 隐藏不占据空间
+    -->
+
     <!-- 电站信息 -->
-    <view style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;">
-        <view class="font_18_333333" style="font-size: 40rpx;margin-top: 30rpx;margin-bottom: 30rpx;">价格信息</view>
-        <view style="font-size: 40rpx;color: orange;">1.8500<text style="font-size: 26rpx;color: #666666;">元/度</text></view>
+    <view class="{{isShowDInzhan ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+        <view class="font_18_333333" style="font-size: 38rpx;margin-top: 30rpx;margin-bottom: 30rpx;">价格信息</view>
+        <view style="font-size: 38rpx;color:#ff5606;">1.8500<text style="font-size: 26rpx;color: #666666;">元/度</text></view>
         <view class="flex_row">
             <text class="label_tag">15:00开始 1.3500元/度</text>
         </view>
-        <view style="display: flex;justify-content: flex-start;">
-            <view>停车参考价</view>
-            <view>参考价格：使用特来电APP进行启动充电的客户，限时免费两小时，超出按10元/小时(如遇场站停车收费系统异常等故障，以实际收取稳准)</view>
+        <view style="display: flex;justify-content: flex-start;margin-top: 10rpx;">
+            <view class="font_13_b6b6b6" style="margin-right: 26rpx;">停车参考价</view>
+            <view class="font_13_black">参考价格：6元/小时 (以实际收取稳准)</view>
         </view>
         <view class="hor_line_view"></view>
-        <view  style="font-size: 40rpx;">电站信息</view>
-        <view>营业时间<text class="">周一至周日00:00-24:00</text></view>
-        <view>服务提供<text class="">北汽特来电</text></view>
-        <view>服务电话<text class="">4001-300-001</text></view>
-        <view style="font-size: 40rpx;">爱车认证</view>
-        <view>爱车认证<text class="">快来认证爱车赚积分</text></view>
+        <view  style="font-size: 38rpx;margin-top: 30rpx;margin-bottom: 10rpx;">电站信息</view>
+        <view class="font_13_b6b6b6 padding_20">营业时间<text class="font_13_black margin_left_26">周一至周日00:00-24:00</text></view>
+        <view class="hor_line_view_another"></view>
+        <view class="font_13_b6b6b6 padding_20">服务提供<text class="font_13_00d1f5 margin_left_26">北汽特来电</text></view>
+        <view class="hor_line_view_another"></view>
+        <view class="font_13_b6b6b6 padding_20">服务电话<text class="font_13_00d1f5 margin_left_26">4001-300-001</text></view>
+        <view class="hor_line_view_another"></view>
+        <view style="font-size: 38rpx;margin-top: 30rpx;margin-bottom: 10rpx;">爱车认证</view>
+        <view class="font_13_b6b6b6">爱车认证<text class="font_13_00d1f5 margin_left_26">快来认证爱车赚积分</text></view>
+    </view>
+
+    <!-- 终端 -->
+    <view class="{{isShowZhongDuan ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+        <block wx:for="{{terminalList}}">
+            <view style="display: flex;flex-direction: row;padding-top: 20rpx;padding-bottom: 20rpx;">
+                <view class="flex_column" style="align-items: center;width: 180rpx;">
+                    <view class="cirqueBox">
+                        <canvas class="progress_bg" canvas-id="canvasProgressbg_normal{{index}}">  </canvas>
+                        <canvas wx-if="{{item.status === '充电中'}}" class="progress_bg" canvas-id="canvasProgressbg_progress{{index}}">  </canvas>
+                        <view wx-if="{{item.status === '充电中'}}" class="text_333333_15">{{item.progress}}</view>
+                        <view class="{{item.status === '充电中' ? 'text_chongDianZhong' : 'text_kongXian'}}">{{item.status}}</view>
+                    </view>
+                    <text wx:if="{{item.status === '充电中'}}" class="border_view">剩余0小时41分</text>
+                </view>
+                <view class="vertical_line_view"></view>
+                <view class="flex_column">
+                    <view class="color_414141">{{item.name1}}</view>
+                    <view class="flex_row margintop_8">
+                        <text class="backcolor_f0f2f5">{{item.name2}}</text>
+                    </view>
+                    <view class="color_676767 margintop_8">{{item.name3}} | {{item.name4}}</view>
+                    <view class="color_676767 margintop_8">{{item.name5}} | {{item.name6}}</view>
+                </view> 
+            </view>
+            <view class="line_view_e6e6e6"></view>
+        </block>    
+    </view>
+
+    <!-- 评论 -->
+    <view class="{{isShowPingLun ? 'display_flex' : 'display_none'}}" style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+        
+    </view>
+
+    <!-- 问答 -->
+    <view class="{{isShowWenDa ? 'display_flex' : 'display_none'}}" style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+        
     </view>
 </scroll-view>
   

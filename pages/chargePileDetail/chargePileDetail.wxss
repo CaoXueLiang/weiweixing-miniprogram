@@ -61,6 +61,30 @@
     color: #999999;
 }
 
+.font_13_b6b6b6{
+    font-size: 26rpx;
+    color: #b6b6b6;
+}
+
+.font_13_black{
+    font-size: 26rpx;
+    color: #000000;
+}
+
+.font_13_00d1f5{
+    font-size: 26rpx;
+    color: #00d1f5;
+}
+
+.margin_left_26{
+    margin-left: 26rpx;
+}
+
+.padding_20{
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
 .number_tag{
     padding-right: 10rpx;
     padding-left: 10rpx;
@@ -92,9 +116,16 @@
 .hor_line_view{
     background-color: rgb(240, 240, 240);
     height: 2rpx;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
+    /* margin-left: 20rpx;
+    margin-right: 20rpx; */
     margin-top: 20rpx;
+}
+
+.hor_line_view_another{
+    background-color: rgb(240, 240, 240);
+    height: 2rpx;
+    /* margin-left: 20rpx;
+    margin-right: 20rpx; */
 }
 
 .filter_tag_normal{
@@ -157,4 +188,109 @@
     text-align: center;
     margin-top: 10rpx;
     margin-bottom: 10rpx;
+}
+
+.cirqueBox{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress_bg{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+}
+
+.text_00d17f{
+    color: #00d17f;
+}
+
+.text_00b9df{
+    color: #00b9df;
+}
+
+.text_kongXian{
+    color: #00d17f;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.text_chongDianZhong{
+    color: #00b9df;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.text_333333_15{
+    font-size: 28rpx;
+    text-align: center;
+    color: #333333;
+}
+
+.color_414141{
+    color: #414141;
+    font-size: 30rpx;
+}
+
+.color_676767{
+    color: #676767;
+    font-size: 28rpx;
+}
+
+.backcolor_f0f2f5{
+    background-color: #f0f2f5;
+    color: #676767;
+    font-size: 28rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+}
+
+.margintop_8{
+    margin-top: 8rpx;
+}
+
+.line_view_e6e6e6{
+    background-color: #e6e6e6;
+    height: 2rpx;
+    width: 100%;
+}
+
+.vertical_line_view{
+    background-color: #e6e6e6;
+    width: 2rpx;
+    margin-right: 30rpx;
+    margin-left: 20rpx;
+}
+
+.display_flex{
+    display: flex;
+}
+
+.display_none{
+    display: none;
+}
+
+.border_view{
+    border-radius: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    text-align: center;
+    border-color: #e6e6e6;
+    border-width: 2rpx;
+    border-style: solid;
+    font-size: 20rpx;
+    color: #84969f;
+    margin-top: 6rpx;
 }

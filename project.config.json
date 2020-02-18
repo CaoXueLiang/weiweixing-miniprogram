@@ -55,6 +55,13 @@
 					"id": -1,
 					"name": "电站详情",
 					"pathName": "pages/chargePileDetail/chargePileDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/chargePileDetail/chargePileDetail",
+					"pathName": "pages/chargePileDetail/chargePileDetail",
 					"scene": null
 				}
 			]
