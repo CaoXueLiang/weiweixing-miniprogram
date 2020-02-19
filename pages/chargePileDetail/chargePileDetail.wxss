@@ -156,6 +156,10 @@
   justify-content: flex-start;
   margin-left: 20rpx;
   margin-right: 20rpx;
+  /* 实现顶部悬停 */
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
 }
 
 .segment_label_normal{

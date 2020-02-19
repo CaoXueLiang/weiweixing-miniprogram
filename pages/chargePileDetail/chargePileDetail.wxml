@@ -1,5 +1,5 @@
 
-<scroll-view class="scrollow_contain" scroll-x="false" scroll-y="true">
+<!-- <scroll-view class="scrollow_contain" scroll-x="false" scroll-y="true"> -->
     <view class="flex_between" style="padding-left: 20rpx;padding-right: 20rpx;margin-top: 20rpx;">
         <view class="flex_column">
             <view class="font_18_333333" style="font-size: 32rpx;">{{chargeDetail.data.stationName}}</view>
@@ -151,5 +151,5 @@
     <view class="{{isShowWenDa ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
         
     </view>
-</scroll-view>
+<!-- </scroll-view> -->
   
