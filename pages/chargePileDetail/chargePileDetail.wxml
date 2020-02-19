@@ -94,12 +94,61 @@
     </view>
 
     <!-- 评论 -->
-    <view class="{{isShowPingLun ? 'display_flex' : 'display_none'}}" style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
-        
+    <view class="{{isShowPingLun ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+        <block wx:for="{{commentArray}}">
+            <view class="flex_column" style="margin-top: 40rpx;margin-bottom: 20rpx;">
+                <!-- 头像昵称信息 -->
+                <view class="flex_row_center">
+                    <image class="avator_image" src="{{item.avator}}" mode="aspectFill"></image>
+                    <view class="flex_column" style="margin-left: 20rpx;">
+                        <view class="color_534f7a font_14">{{item.name}}</view>
+                        <van-rate value="{{item.score}}" size="{{ 14 }}" gutter="{{2}}" allow-half color="#ff9a00" void-color="#eee" void-icon="star" readonly="true"/>
+                    </view>
+                </view>
+                <!-- 右侧信息 -->
+                <view class="flex_column" style="margin-left: 90rpx;margin-top: 10rpx;">
+                    <view class="color_000000 font_15">{{item.reply}}</view>
+                    <view class="flex_between_center" style="margin-top: 20rpx;margin-bottom: 10rpx;">
+                        <view class="color_898989 font_12">{{item.time}}</view>
+                        <view class="flex_row_center">
+                            <view class="flex_center_center">
+                                <image class="like_image" src="../../image/like.png" mode="aspectFill"></image>
+                                <text class="color_534f7a font_12">赞{{item.likeNum}}</text>
+                            </view>
+                            <view class="flex_center_center" style="margin-left: 20rpx;">
+                                <image class="reply_image" src="../../image/reply.png" mode="aspectFill"></image>
+                                <text class="color_534f7a font_12">评论{{item.replyNum}}</text>
+                            </view> 
+                        </view>     
+                    </view>
+                    <view wx:if="{{item.likeArray.length > 0 || item.replyArray.length > 0}}" class="line_view_e6e6e6" style="background-color: #f2f2f2;margin-bottom: 10rpx;"></view>
+                    <!-- 点赞 -->
+                    <view class="flex_row" wx:if="{{item.likeArray.length > 0}}">
+                        <image class="like_image" src="../../image/like.png" mode="aspectFill"></image>
+                        <view class="flex_row_wrap">
+                            <block wx:for="{{item.likeArray}}" wx:for-item="itemName">
+                               <text class="color_534f7a font_13">{{itemName.name}}</text>
+                               <text wx:if="{{index < item.likeArray.length-1}}" class="color_534f7a font_13">,</text>
+                            </block> 
+                        </view>
+                    </view>
+                    <!-- 评论-->
+                    <view class="flex_row" style="margin-top: 10rpx;" wx:if="{{item.replyArray.length > 0}}">
+                        <image class="reply_image" src="../../image/reply.png" mode="aspectFill"></image>
+                        <view class="flex_column" style="flex: 1;">
+                            <block wx:for="{{item.replyArray}}">
+                                <text class="color_534f7a font_13">{{item.name}}: {{item.reply}}</text>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="line_view_e6e6e6" style="background-color: #f2f2f2;"></view>
+        </block>
     </view>
 
     <!-- 问答 -->
-    <view class="{{isShowWenDa ? 'display_flex' : 'display_none'}}" style="display: flex;flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
+    <view class="{{isShowWenDa ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
         
     </view>
 </scroll-view>

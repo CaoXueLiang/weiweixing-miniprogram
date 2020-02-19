@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-21 17:39:15
- * @LastEditTime : 2020-02-11 18:12:00
+ * @LastEditTime: 2020-02-19 15:51:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/chargePileDetail/chargePileDetail.js
@@ -33,7 +33,64 @@ Page({
        {name1:'201号直流(1101050477201)',name2:'车位号无',name3:'50kw-150kw',name4:'250v-750v',name5:'直流快充',name6:'国标2015',progress:'0',status:'空闲'},
      ],
      commentArray:[
-       
+      {
+       avator:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',
+       name:'明明明',
+       reply:'嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻',
+       score:'1',
+       time:"01-17 21:48",
+       likeNum:1,
+       replyNum:2,
+       likeArray:[{name:'小明'},{name:'小花'},{name:'小亮'},{name:'小明'},{name:'小花'},{name:'小亮'},{name:'小明'},{name:'小花'},{name:'小亮'},{name:'小明'},{name:'小花'},{name:'小亮'},],
+       replyArray:[{name:'北汽特来电',reply:'您好，使用特来电APP进行启动，免两小时停车费超出时间的停车费以实际场地为准，感谢您的理解'}]
+      },
+      {
+        avator:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',
+        name:'啊啊啊',
+        reply:'啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
+        score:'2',
+        time:"01-17 21:48",
+        likeNum:1,
+        replyNum:2,
+        likeArray:[{name:'小和'},],
+        replyArray:[
+          {name:'北汽特来电',reply:'您好，使用特来电APP进行启动，免两小时停车费超出时间的停车费以实际场地为准，感谢您的理解'},
+          {name:'小小艾',reply:'回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复'},
+          {name:'小花',reply:'哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或'}
+        ]
+       },
+       {
+        avator:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',
+        name:'嘿嘿嘿嘿嘿嘿',
+        reply:'少时诵诗书所所所所所所所所所所所所所所所所所所所所所所所所所所所所所所',
+        score:'3',
+        time:"01-17 21:48",
+        likeNum:1,
+        replyNum:2,
+        likeArray:[{name:'小明'},{name:'小花'}]
+       },
+       {
+        avator:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',
+        name:'呃呃呃呃呃呃呃呃呃',
+        reply:'哒哒哒哒哒哒多多多多多多多多多多多多多多多多多多多多多多多多多多',
+        score:'4',
+        time:"01-17 21:48",
+        likeNum:1,
+        replyNum:2,
+        likeArray:[],
+        replyArray:[{name:'北汽特来电',reply:'您好，使用特来电APP进行启动，免两小时停车费超出时间的停车费以实际场地为准，感谢您的理解'}]
+       },
+       {
+        avator:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',
+        name:'突突突突突突拖拖拖拖拖拖拖拖拖拖拖',
+        reply:'呀呀呀呀呀呀晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕晕',
+        score:'4',
+        time:"01-17 21:48",
+        likeNum:1,
+        replyNum:2,
+        likeArray:[],
+        replyArray:[]
+       },
      ],
   },
 
