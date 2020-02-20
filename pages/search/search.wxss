@@ -1,1 +1,256 @@
 /* pages/search/search.wxss */
+page{
+    background-color: white;
+}
+
+.top_contain{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 30rpx;
+   padding-right: 30rpx;
+}
+
+.input_contain{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 70rpx;
+  border-radius: 35rpx;
+  flex: 1;
+  overflow: hidden;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.input_class{
+  /* background-color: #f5f5f5; */
+  color: black;
+  font-size: 26rpx;
+  height: 70rpx;
+  /* border-radius: 40rpx; */
+  flex: 1;
+}
+
+.input_placeHolder_class{
+    background-color: #f5f5f5;
+    color: rgb(148, 148, 148);
+    font-size: 26rpx;
+}
+
+.cancel_vew{
+    color: black;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.search_image{
+    width: 50rpx;
+    height:50rpx;
+}
+
+.search_result_contain{
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.search_adress_item{
+    display: flex;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.flex_coloumn_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.font_14_e1e1e1{
+   color: #333333;
+   font-size: 28rpx;
+}
+
+.font_13_999999{
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.line_view{
+    background-color: #e6e6e6;
+    height: 2rpx;
+    margin-left: 20rpx;
+}
+
+.color_00c8f5{
+    color: #00c8f5;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    text-align: center;
+    background-color: white;
+}
+
+.chargr_item{
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    padding-top: 30rpx;
+    padding-bottom: 20rpx;
+    margin-bottom: 14rpx;
+}
+
+.car_image{
+    width: 140rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+    margin-right: 20rpx;
+}
+
+.chargr_item_right{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.flex_row_center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex_space_between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex_row_wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.line_another_view{
+    background-color: #e6e6e6;
+    width: 100%;
+    height: 2rpx;
+}
+
+.tag_view{
+    color: #999999;
+    border-color: #e6e6e6;
+    border-width: 2rpx;
+    border-style: solid;
+    border-radius: 20rpx;
+    height: 40rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    font-size: 26rpx;
+}
+
+.margint_5{
+    margin-right: 10rpx;
+}
+
+.font_15_000000{
+    font-size: 34rpx;
+    color: black;
+    font-weight: 400;
+}
+
+.font_14_9f9f9f{
+    color: #9f9f9f;
+    font-size: 28rpx;
+}
+
+.font_13_9f9f9f{
+    color: #9f9f9f;
+    font-size: 26rpx;
+}
+
+.p_tag{
+    background-color: #00dce5;
+    font-size: 22rpx;
+    border-radius: 6rpx;
+    width: 34rpx;
+    line-height: 34rpx;
+    height: 34rpx;
+    color: white;
+    text-align: center;
+    margin-right: 10rpx;
+}
+
+.font_17_color_ff5200{
+    color: #ff5200;
+    font-size: 36rpx;
+    font-weight: 400;
+}
+
+.font_15_333333{
+    color: #333333;
+    font-size: 30rpx;
+}
+
+.margin_top_5{
+    margin-top: 6rpx;
+}
+
+.kuai_contain{
+   height: 40rpx;
+   border-radius: 20rpx;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   border-width: 2rpx;
+   border-color: #ff202b;
+   border-style: solid;
+   padding-left: 2rpx;
+   padding-right: 10rpx;
+}
+
+.kuai_circle{
+   width: 36rpx;
+   height: 36rpx;
+   border-radius: 50%;
+   line-height: 36rpx;
+   text-align: center;
+   color: white;
+   font-size: 22rpx;
+   background-color: #ff202b;
+   margin-right: 6rpx;
+}
+
+.color_ff202b{
+    color: #ff202b;
+}
+
+.color_00db87{
+    color: #00db87;
+}
+
+.man_contain{
+    border-color: #00db87;
+}
+
+.man_circle{
+    background-color: #00db87;
+}
+
+.font_13_666666{
+    font-size: 26rpx;
+    color: #666666;
+}

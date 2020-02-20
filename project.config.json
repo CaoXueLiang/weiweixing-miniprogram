@@ -21,7 +21,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.93",
+	"libVersion": "2.10.1",
 	"appid": "wxf4c1cab3d1c578dc",
 	"projectname": "weiweixing",
 	"isGameTourist": false,
@@ -62,6 +62,20 @@
 					"id": -1,
 					"name": "pages/chargePileDetail/chargePileDetail",
 					"pathName": "pages/chargePileDetail/chargePileDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
 					"scene": null
 				}
 			]

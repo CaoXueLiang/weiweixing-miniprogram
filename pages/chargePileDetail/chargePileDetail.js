@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-21 17:39:15
- * @LastEditTime: 2020-02-19 15:51:52
+ * @LastEditTime: 2020-02-20 14:04:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/chargePileDetail/chargePileDetail.js
@@ -19,6 +19,7 @@ Page({
      isShowZhongDuan:false, //是否显示终端
      isShowPingLun:false,   //是否显示评论
      isShowWenDa:false,     //是否显示问答
+     canvasImageArray:[],   //Canvas图片数组，解决层级问题
      segmentArray:[
        {name:'电站',isSelected:true},
        {name:'终端',isSelected:false},
@@ -110,6 +111,28 @@ Page({
   },
 
   /**
+   * 将Canvas转化为图片
+   * @param {*} tmpid
+   */
+  _canvasToTempFilePathMenthod(tmpid){
+    wx.canvasToTempFilePath({
+      x: 100,
+      y: 200,
+      width: 50,
+      height: 50,
+      destWidth: 100,
+      destHeight: 100,
+      canvasId: tmpid,
+      success(res) {
+        console.log('图片信息' +  res)
+      },
+      fail(res){
+        console.log(res)
+      }
+    })
+  },
+
+  /**
    * 绘制圆环
    * @param {*} canvasId
    * @param {*} color
@@ -125,9 +148,31 @@ Page({
     //设置圆环的颜色
     ctx.setStrokeStyle(color);
     //绘制弧度
-    ctx.arc(35,35,30,1.5*Math.PI,progress*Math.PI*2 - 0.5*Math.PI)
+    ctx.arc(35,35,30,1.5*Math.PI,progress*Math.PI*2 - 0.5*Math.PI);
     ctx.stroke();
     ctx.draw();
+  },
+  
+  /**
+   * 2d绘制页面
+   */
+  _drawCanvas2DMenthod(){
+    const query = wx.createSelectorQuery()
+    query.select('#myCanvas')
+      .fields({ node: true, size: true })
+      .exec((res) => {
+        const canvas = res[0].node
+        /* 2.9.0 及以上版本都要设置一下 canvas 的宽高。默认是 300x150 的。
+           css 控制不了？必须通过canvas.width 这样去设置吗？ */
+        canvas.width = 70
+        canvas.height = 70
+        const ctx = canvas.getContext('2d')
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(244, 94, 77, 1)';
+        ctx.lineWidth = 5;
+        ctx.arc(35, 35, 30, 0, 2*Math.PI, false);
+        ctx.stroke();
+      })
   },
 
   /**

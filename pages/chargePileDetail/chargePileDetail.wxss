@@ -159,7 +159,7 @@
   /* 实现顶部悬停 */
   position: sticky;
   top: 0px;
-  z-index: 1000;
+  z-index: 999999999999;
 }
 
 .segment_label_normal{

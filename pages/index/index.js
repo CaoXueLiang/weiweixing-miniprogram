@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime : 2020-01-21 17:41:51
+ * @LastEditTime: 2020-02-20 10:50:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -72,7 +72,7 @@ Page({
  onLoad:function(){
    /**开始地图定位 */
    CommonManager.QQMAPLocation().then(res => {
-     console.log(JSON.stringify(res));
+    //  console.log(JSON.stringify(res));
     this.setData({
        latitude: res.result.location.lat,
        longitude: res.result.location.lng,
@@ -145,7 +145,7 @@ Page({
   * @param {*} e
   */
  clickedTagMenthod(e){
-    console.log(JSON.stringify(e.currentTarget.dataset.clickedindex));
+    // console.log(JSON.stringify(e.currentTarget.dataset.clickedindex));
     let currentIndex = e.currentTarget.dataset.clickedindex;
     this.data.filterArray[currentIndex].isSelected = !this.data.filterArray[currentIndex].isSelected;
     this.setData({
@@ -220,7 +220,7 @@ Page({
   * @param {*} e
   */
  tapFilterItem(e){
-   console.log(JSON.stringify(e));
+  //  console.log(JSON.stringify(e));
    let currentElement = e.currentTarget.dataset.currentelement;
   for (let index = 0; index < this.data.perfenenceArray.length; index++) {
     let element = this.data.perfenenceArray[index];
@@ -317,7 +317,7 @@ Page({
     var that = this;
     this.mapCtx.getCenterLocation({
       success: function(res){
-        console.log('拖动经纬度'+JSON.stringify(res))
+        // console.log('拖动经纬度'+JSON.stringify(res))
         // 拖拽后进行修改
         that.searchMenthod(res.latitude,res.longitude);
       },
@@ -331,7 +331,7 @@ Page({
   searchMenthod:function(latitude,longitude){
     var that = this;
     CommonManager.QQMAPSearch('商场',latitude,longitude).then(res => {
-      console.log(JSON.stringify(res));
+      // console.log(JSON.stringify(res));
       var tmpMarker = [];
       var tmpData = [];
       for (let index = 0; index < res.data.length; index++) {
@@ -362,7 +362,7 @@ Page({
    * @param {*} e 
    */
   bindregionchangeMenthod: function (e) {
-    console.log("地图拖动"+JSON.stringify(e));
+    // console.log("地图拖动"+JSON.stringify(e));
     var that = this
     if (e.type == "begin") {
       console.log("begin");
@@ -377,7 +377,7 @@ Page({
    * @param {*} e 
    */
   markertap:function(e){
-    console.log('点击marker'+JSON.stringify(e));
+    // console.log('点击marker'+JSON.stringify(e));
     for (let index = 0; index < this.data.markers.length; index++) {
       let element = this.data.markers[index];
       if (e.markerId == element.id) {

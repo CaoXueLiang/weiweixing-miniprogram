@@ -1,66 +1,50 @@
+
 // pages/search/search.js
+let CommonManager = require("../../utils/managerHelper.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    keyWord:'',
+    isShowResult:false,
+    searchAdressArray:[
+      {name:'三里屯',adress:'北京朝阳区',distance:"7.5km"},
+      {name:'三里屯',adress:'北京朝阳区',distance:"7.5km"},
+      {name:'三里屯',adress:'北京朝阳区',distance:"7.5km"},
+    ],
+    chargeList:[
+      {image:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',name:"北京通盈中心一期充电站",distance:"7.4km",score:"3",pretime:'16',Price:"1.6053",parkPrice:'5',tagArray:[{name:"自营"},{name:"对外开放"},{name:"非露天B2"},]},
+      {image:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',name:"北京通盈中心一期充电站",distance:"7.4km",score:"3",pretime:'16',Price:"1.6053",parkPrice:'5',tagArray:[{name:"自营"},{name:"对外开放"},{name:"非露天B2"},]},
+      {image:'https://resource.teld.cn/teldimage/115/9ce32d9e4b8c468bae8166a9cd3e6595_w200h200.jpg',name:"北京通盈中心一期充电站",distance:"7.4km",score:"3",pretime:'16',Price:"1.6053",parkPrice:'5',tagArray:[{name:"自营"},{name:"对外开放"},{name:"非露天B2"},]}
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(JSON.stringify(CommonManager.getHistaryList));
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindInputMenthod: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      isShowResult:e.detail.value.length > 0,
+      keyWord:e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  clickedConfirm(){
+    console.log('点击完成')
+    CommonManager.saveHistoryKey(this.data.keyWord);
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  backmenthod(){
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
+    })
   }
+
 })

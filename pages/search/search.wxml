@@ -1,9 +1,67 @@
-<!--
- * @Author: your name
- * @Date: 2020-01-20 15:41:20
- * @LastEditTime: 2020-01-21 16:12:47
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /weiweixing-miniprogram/pages/search/search.wxml
- -->
-<!--pages/search/search.wxml-->
+
+<view class="top_contain" style="padding-top: 20rpx;padding-bottom: 20rpx;">
+    <view class="input_contain">
+        <image class="search_image" src="../../image/sousuo.png" mode="aspectFill"></image>
+        <input class="input_class" value="" type="text"  placeholder="输入目的地/电站名" placeholder-class="input_placeHolder_class"
+         focus="ture" bindinput="bindInputMenthod" confirm-type = "done" bindconfirm="clickedConfirm"></input>
+    </view>
+    <view class="cancel_vew" bindtap = "backmenthod">取消</view>
+</view>
+  
+<!-- 搜索结果 -->
+<view wx:if="{{isShowResult}}" class="search_result_contain">
+    <text class="font_13_999999" style="padding:20rpx;">{{keyWord}} 相关目的地</text>
+    <!-- 相关目的地 -->
+    <block wx:for="{{searchAdressArray}}">
+        <view class="search_adress_item">
+            <view class="flex_coloumn_center">
+                <text class="font_13_e1e1e1">{{item.name}}</text>
+                <text class="font_13_999999" style="margin-top: 10rpx;">{{item.adress}}</text>
+            </view>
+            <text class="font_13_999999">据您{{item.distance}}</text>
+        </view>
+        <view class="line_view"></view>
+    </block>
+    <view class="color_00c8f5">查看全部目的地 ></view>
+    <text class="font_13_999999" style="padding:20rpx;">{{keyWord}} 相关充电站</text>
+    <!-- 相关充电站 -->
+    <block wx:for="{{chargeList}}">
+        <view class="chargr_item">
+            <image class="car_image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="chargr_item_right">
+                <view class="flex_row_center">
+                    <text class="font_15_000000">{{item.name}}</text>
+                    <text class="font_13_9f9f9f">朝阳区 {{item.distance}}</text>
+                </view>
+                <view class="flex_row_center">
+                    <van-rate value="{{item.score}}" size="{{ 12 }}" gutter="{{0}}" allow-half color="#ff9a00" void-color="#eee" void-icon="star" readonly="true"/>
+                    <text class="font_14_9f9f9f">{{item.score}}分 |</text>
+                    <text class="font_14_9f9f9f">最近充电{{item.pretime}}小时前</text>
+                </view>
+                <view class="flex_space_between margin_top_5">
+                    <view class="font_15_333333"><text class="font_17_color_ff5200">{{item.Price}}</text> 元/度</view>
+                    <view class="flex_row_center">
+                        <view class="kuai_contain" >
+                            <view class="kuai_circle">快</view>
+                            <view class="font_13_666666"><text class="color_ff202b">5</text>/5</view>
+                        </view>
+                        <view class="kuai_contain man_contain"  style="margin-left: 10rpx;">
+                            <view class="kuai_circle man_circle">慢</view>
+                            <view class="font_13_666666"><text class="color_00db87">5</text>/5</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="flex_row_center margin_top_5">
+                    <text class="p_tag">P</text>
+                    <view class="font_13_9f9f9f">参考价格：{{item.parkPrice}}元/小时，以实际收取为准</view>
+                </view>
+                <view class="line_another_view" style="margin-top: 14rpx;"></view>
+                <view class="flex_row_wrap" style="margin-top: 20rpx;">
+                    <block wx:for="{{item.tagArray}}" wx:for-item = 'nowItem'>
+                        <text class="tag_view {{index < item.tagArray.length ? 'margint_5' : ''}}" >{{nowItem.name}}</text>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

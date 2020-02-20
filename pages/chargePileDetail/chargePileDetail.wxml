@@ -72,6 +72,7 @@
             <view style="display: flex;flex-direction: row;padding-top: 20rpx;padding-bottom: 20rpx;">
                 <view class="flex_column" style="align-items: center;width: 180rpx;">
                     <view class="cirqueBox">
+                        <!-- <canvas class="progress_bg" type="2d" id="myCanvas"></canvas> -->
                         <canvas class="progress_bg" canvas-id="canvasProgressbg_normal{{index}}">  </canvas>
                         <canvas wx-if="{{item.status === '充电中'}}" class="progress_bg" canvas-id="canvasProgressbg_progress{{index}}">  </canvas>
                         <view wx-if="{{item.status === '充电中'}}" class="text_333333_15">{{item.progress}}</view>
