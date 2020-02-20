@@ -91,6 +91,13 @@ page{
     margin-left: 20rpx;
 }
 
+.line_view_another{
+    background-color: #e6e6e6;
+    height: 2rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
 .color_00c8f5{
     color: #00c8f5;
     height: 80rpx;
@@ -163,6 +170,10 @@ page{
 
 .margint_5{
     margin-right: 10rpx;
+}
+
+.margint_10{
+    margin-right: 20rpx;
 }
 
 .font_15_000000{
@@ -253,4 +264,28 @@ page{
 .font_13_666666{
     font-size: 26rpx;
     color: #666666;
+}
+
+.flex_between_center{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex_coloumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.text_tag_f1f1f1{
+    height: 60rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    border-radius: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    background-color: #f1f1f1;
+    color: #333333;
+    font-size: 30rpx;
+    margin-bottom: 20rpx;
 }

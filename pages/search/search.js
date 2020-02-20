@@ -9,6 +9,7 @@ Page({
   data: {
     keyWord:'',
     isShowResult:false,
+    keyList:[],
     searchAdressArray:[
       {name:'三里屯',adress:'北京朝阳区',distance:"7.5km"},
       {name:'三里屯',adress:'北京朝阳区',distance:"7.5km"},
@@ -25,26 +26,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(JSON.stringify(CommonManager.getHistaryList));
-  },
-
-  bindInputMenthod: function (e) {
-    console.log(e.detail.value)
+    console.log(wx.getStorageSync('histaryKeyArray'));
+    let currentArray = wx.getStorageSync('histaryKeyArray') ? wx.getStorageSync('histaryKeyArray') : [];
     this.setData({
-      isShowResult:e.detail.value.length > 0,
-      keyWord:e.detail.value
+      keyList:currentArray
     })
   },
 
+  /**
+   * 输入框内容发生改变时调用
+   *
+   * @param {*} e
+   */
+  bindInputMenthod(e) {
+    // let keyWord = e.detail.value;
+    // console.log('正在输入' +  keyWord)
+  },
+
+  /**
+   * 保存搜索历史关键字
+   * @param {*} keyWord 
+   */
+  _saveKeyWord(keyWord){
+    let currentArray = wx.getStorageSync('histaryKeyArray') ? wx.getStorageSync('histaryKeyArray') : [];
+    if (currentArray.indexOf(keyWord) < 0 && keyWord.length > 0) {
+      currentArray.push(keyWord);
+      wx.setStorage({
+        key:'histaryKeyArray',
+        data:currentArray
+      })
+    }
+  },
+
+  /**
+   * 点击键盘完成按钮
+   */
   clickedConfirm(){
-    console.log('点击完成')
-    CommonManager.saveHistoryKey(this.data.keyWord);
+    console.log('点击完成' + this.data.keyWord)
+    this._saveKeyWord(this.data.keyWord);
+  },
+
+  clearCache(){
+     wx.removeStorageSync('histaryKeyArray');
+     this.setData({
+      keyList:[],
+     })
   },
 
   backmenthod(){
     wx.navigateBack({
-      delta: 1, // 回退前 delta(默认为1) 页面
+      delta: 1, 
     })
-  }
-
+  },
 })

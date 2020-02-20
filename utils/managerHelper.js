@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-15 14:36:07
- * @LastEditTime: 2020-02-20 17:03:08
+ * @LastEditTime: 2020-02-20 17:32:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
@@ -42,32 +42,6 @@ module.exports = {
       })
     });
   },
-
-  /**
-   * 保存搜索历史Key
-   */
-  saveHistoryKey:function(keyword){
-    let currentArray = this.getHistaryList();
-    if (currentArray.includes(keyword)) {
-       return;
-    }
-    wx.setStorage({
-      key:'histaryKeyArray',
-      data:currentArray
-    })
-  },
-
-  /**
-   * 获取搜索历史数组
-   */
-  getHistaryList:function(){
-    let histaryArray = wx.getStorageSync("histaryKeyArray")
-    if (histaryArray) {
-      return histaryArray
-    }else{
-      return []
-    }
-   },
 
   /**
    * 腾讯地图定位
