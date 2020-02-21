@@ -2,21 +2,21 @@
 <view class="top_contain" style="padding-top: 20rpx;padding-bottom: 20rpx;">
     <view class="input_contain">
         <image class="search_image" src="../../image/sousuo.png" mode="aspectFill"></image>
-        <input class="input_class" value="" type="text"  placeholder="输入目的地/电站名" placeholder-class="input_placeHolder_class"
+        <input class="input_class" value="{{keyWord}}" type="text"  placeholder="输入目的地/电站名" placeholder-class="input_placeHolder_class"
          focus="ture" bindinput="bindInputMenthod" confirm-type = "done" bindconfirm="clickedConfirm"></input>
     </view>
     <view class="cancel_vew" bindtap = "backmenthod">取消</view>
 </view>
 
 <!-- 搜索关键字历史 -->
-<view wx:if="{{keyList.length > 0}}" class="flex_coloumn">
+<view wx:if="{{keyList.length > 0 && !isShowResult}}" class="flex_coloumn">
     <view class="flex_between_center" style="margin-top: 30rpx;padding-left: 30rpx;padding-right: 30rpx;">
         <view style="font-size: 34rpx;">我搜过的</view>
         <view style="color: #05d3f7;font-size: 28rpx;" bindtap = "clearCache">清空搜索记录</view>
     </view>
     <view class="flex_row_wrap" style="margin-top: 30rpx;padding-left: 30rpx;padding-right: 30rpx;">
         <block wx:for="{{keyList}}">
-            <text class="text_tag_f1f1f1 {{index < keyList.length ? 'margint_10' : ''}}">{{item}}</text>
+            <text class="text_tag_f1f1f1 {{index < keyList.length ? 'margint_10' : ''}}" data-keyword="{{item}}" bindtap = "clickedTag">{{item}}</text>
         </block>
     </view>
     <view class="line_view_another"></view>
@@ -40,7 +40,7 @@
     <text class="font_13_999999" style="padding:20rpx;">{{keyWord}} 相关充电站</text>
     <!-- 相关充电站 -->
     <block wx:for="{{chargeList}}">
-        <view class="chargr_item">
+        <view class="chargr_item" bindtap = "clickedCharge">
             <image class="car_image" src="{{item.image}}" mode="aspectFill"></image>
             <view class="chargr_item_right">
                 <view class="flex_row_center">

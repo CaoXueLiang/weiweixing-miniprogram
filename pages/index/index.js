@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime: 2020-02-20 10:50:13
+ * @LastEditTime: 2020-02-21 11:37:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -81,7 +81,25 @@ Page({
      this.searchMenthod(res.result.location.lat,res.result.location.lng);
      this.moveToLocation();
    })
+
+   
+	//  let date=new Date(); 
+  //  console.log(CommonManager.formatDate(date,'yyyy-MM-dd hh:mm:ss'))
+  // this.requestMenthod();
  },
+
+ /*requestMenthod(){
+  CommonManager.fetchMenthod({
+    url: "",
+    data: {}
+  })
+  .then((res) => {
+    console.log(JSON.stringify(res));
+  })
+  .catch((res) => {
+    console.log(JSON.stringify(res));
+  })
+ },*/
 
  /**
   * 点击头像

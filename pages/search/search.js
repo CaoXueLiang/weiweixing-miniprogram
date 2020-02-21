@@ -39,8 +39,12 @@ Page({
    * @param {*} e
    */
   bindInputMenthod(e) {
-    // let keyWord = e.detail.value;
+    let keyWord = e.detail.value;
     // console.log('正在输入' +  keyWord)
+    this.setData({
+      keyWord:keyWord,
+      isShowResult:keyWord.length > 0
+    })
   },
 
   /**
@@ -66,11 +70,37 @@ Page({
     this._saveKeyWord(this.data.keyWord);
   },
 
+  /**
+   * 清除缓存
+   */
   clearCache(){
      wx.removeStorageSync('histaryKeyArray');
      this.setData({
       keyList:[],
      })
+  },
+
+  /**
+   * 点击标签
+   *
+   * @param {*} e
+   */
+  clickedTag(e){
+   console.log(e.currentTarget.dataset.keyword);
+   this.setData({
+     isShowResult:true,
+     keyWord:e.currentTarget.dataset.keyword
+   })
+  },
+
+  /**
+   * 点击item
+   *
+   */
+  clickedCharge(){
+    wx.navigateTo({
+      url: '../chargePileDetail/chargePileDetail',
+    })
   },
 
   backmenthod(){
