@@ -1,0 +1,38 @@
+
+
+<!-- 黑色背景 -->
+<view wx:if="{{isShowEntryItem}}" class="container" bindtap = "clickedItem">
+    
+</view>
+
+<!-- 快捷入口 -->
+<view class="quick_entry_contain {{isShowEntryItem ? 'zindex_103' : 'zindex_99'}}">
+    <view class="quick_entry_top_conain" bindtap = "clickedItem">
+        <text wx:if="{{!isShowEntryItem}}" class="text_white">快捷导航</text>
+        <image wx:if="{{isShowEntryItem}}" class="bianxie_image" src="../../image/xiajiantou.png" mode="aspectFill"></image>
+        <text wx:if="{{isShowEntryItem}}" class="text_white" style="margin-top: -8rpx;">收起</text>
+    </view>
+    <view class="hor_line"></view>
+    <view class="quick_entry_bottom_conain" bindtap = "editeMenthod">
+        <image class="bianxie_image" src="../../image/bianxie.png" mode="aspectFill"></image>
+    </view>
+</view>
+
+<!-- 快捷入口item -->
+<view wx:if="{{isShowEntryItem}}" class="quick_entry_items_contain {{isShowEntryItem ? 'animation_show_item' : 'animation_hide_item'}}">
+    <view class="quick_entry_item" bindtap = "clickedItem1">
+        <image class="bianxie_image" src="../../image/item1.png" mode="aspectFill"></image>
+    </view>
+    <view class="hor_line color_e6e6e6"> </view>
+    <view class="quick_entry_item" bindtap = "clickedItem2">
+        <image class="bianxie_image" src="../../image/item2.png" mode="aspectFill"></image>
+    </view>
+    <view class="hor_line color_e6e6e6"> </view>
+    <view class="quick_entry_item" bindtap = "clickedItem3">
+        <image class="bianxie_image" src="../../image/item3.png" mode="aspectFill"></image>
+    </view>
+    <view class="hor_line color_e6e6e6"> </view>
+    <view class="quick_entry_item" bindtap = "clickedItem4">
+        <image class="bianxie_image" src="../../image/saomiao.png" mode="aspectFill"></image>
+    </view>
+</view>

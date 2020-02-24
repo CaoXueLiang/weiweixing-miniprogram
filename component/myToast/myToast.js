@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-02-18 16:48:56
+ * @LastEditTime: 2020-02-24 11:42:54
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /weiweixing-miniprogram/component/myToast/myToast.js
+ */
 
 Component({
   /**

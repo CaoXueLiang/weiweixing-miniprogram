@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "电站详情",
-  "usingComponents": {}
+  
+  "usingComponents": {
+    "quickEntry-Componment":"../../component/quickEntryComponment/quickEntryComponment"
+  }
 }
