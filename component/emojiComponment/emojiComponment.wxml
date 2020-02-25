@@ -1,0 +1,29 @@
+
+
+
+<view class="total_conntain">
+  <!-- 输入框容器 -->
+  <view class="top_input_contain">
+    <image class="simile_image}" src="{{pictureUrl}}" mode="aspectFill" bindtap = "switchInpputMenthod"></image>
+    <input class="input_class" value="{{keyWord}}" type="text" placeholder="写点评了吧" placeholder-class="input_placeHolder_class" focus="{{isEmotion}}" bindinput="bindInputMenthod" confirm-type = "done" bindconfirm="clickedConfirm"></input>
+    <view class="faSong_Button_unAvaible {{keyWord.length > 0 ? 'faSong_Button_avaible' : ''}}" bindtap = "sendMenthod">发送</view>
+  </view>
+ <!-- 表情容器 -->
+  <swiper class="emonition_container" indicator-dots="true" indicator-color="rgba(0,0,0,.3)">
+   <block wx:for="{{dealEmotionsArray}}">
+     <swiper-item>
+       <view class="swipter_item">
+         <block wx:for="{{item}}">
+             <view class="emoji-cell">
+                 <image class="emotion_image" catchtap = "clickedEmotionMenthod" data-emotionInfo="{{item}}" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{item.emoji}}.png"></image>
+             </view>
+         </block>
+       </view>
+     </swiper-item>
+   </block>
+  </swiper>
+</view>
+
+
+
+

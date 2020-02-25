@@ -2,6 +2,7 @@
   "navigationBarTitleText": "电站详情",
   
   "usingComponents": {
-    "quickEntry-Componment":"../../component/quickEntryComponment/quickEntryComponment"
+    "quickEntry-Componment":"../../component/quickEntryComponment/quickEntryComponment",
+    "emotion-componment":"../../component/emojiComponment/emojiComponment"
   }
 }

@@ -154,10 +154,17 @@
     <view class="{{isShowWenDa ? 'display_flex' : 'display_none'}}" style="flex-direction: column;padding-left: 20rpx;padding-right: 20rpx;margin-bottom: 30rpx;">
         
     </view>
+
+    <!-- emotion组件 -->
+    <emotion-componment></emotion-componment>
     
 </view>
 <!-- </scroll-view> -->
+
+<!-- 快捷导航组件 -->
 <quickEntry-Componment></quickEntry-Componment>
+
+
 
    
   

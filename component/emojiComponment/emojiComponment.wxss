@@ -1,0 +1,101 @@
+/* component/emojiComponment/emojiComponment.wxss */
+
+
+.total_conntain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color:white;
+    z-index: 101;
+    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.emonition_container{
+    width: 100%;
+    height: 180px;
+    background-color:white;
+}
+
+.swipter_item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.emoji-cell {
+    width: 14.2857%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.emotion_image{
+    width: 30px;
+    height: 30px;
+}
+
+.top_input_contain{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 120rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.jianpan_image{
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.simile_image{
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.faSong_Button_unAvaible{
+    height: 60rpx;
+    border-radius: 30rpx;
+    color: white;
+    background-color: lightgray;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+}
+
+.faSong_Button_avaible{
+    background-color: #34cbe1;
+}
+
+.input_class{
+   height: 80rpx;
+   flex-grow: 1;
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+   background-color: #f7f7f7;
+   font-size: 30rpx;
+   color: #333333;
+   border-radius: 40rpx;
+   border-color: #d2d2d2;
+   border-style: solid;
+   border-width: 2rpx;
+   padding-left: 30rpx;
+   padding-right: 30rpx;
+} 
+
+.input_placeHolder_class{
+   color: #929292;
+}
+
