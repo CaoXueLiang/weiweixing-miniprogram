@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-02-24 10:28:31
+ * @LastEditTime: 2020-02-28 15:47:59
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /weiweixing-miniprogram/component/quickEntryComponment/quickEntryComponment.js
+ */
 
 Component({
   /**

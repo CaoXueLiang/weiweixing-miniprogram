@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-24 15:14:47
- * @LastEditTime: 2020-02-25 14:41:35
+ * @LastEditTime: 2020-02-28 16:15:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/component/emojiComponment/emojiComponment.js
@@ -13,7 +13,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    
   },
 
   /**
@@ -38,7 +38,7 @@ Component({
     ],
     emojisArray: [],//qq、微信原始表情
     dealEmotionsArray:[],
-    isEmotion:false, //是否是表情
+    isEmotion:true, //是否是表情
     keyWord:'',
     pictureUrl:'../../image/jianpan.png',
   },
@@ -61,7 +61,7 @@ Component({
         emojisArray:this.data.emojisArray
       })
       this.dealEmotionMenthod();
-      console.log(JSON.stringify(this.data.emojisArray))
+      // console.log(JSON.stringify(this.data.emojisArray))
     },
   },
 
@@ -108,7 +108,7 @@ Component({
        }
        this.data.dealEmotionsArray.push(remainedArray);
 
-       console.log('处理后的表情'+JSON.stringify(this.data.dealEmotionsArray))
+      //  console.log('处理后的表情'+JSON.stringify(this.data.dealEmotionsArray))
        this.setData({
         dealEmotionsArray:this.data.dealEmotionsArray,
        })
@@ -134,7 +134,7 @@ Component({
     this.data.isEmotion = !this.data.isEmotion;
     this.setData({
       isEmotion:this.data.isEmotion,
-      pictureUrl:this.data.isEmotion ? '../../image/smiling.png' : '../../image/jianpan.png',
+      pictureUrl:this.data.isEmotion ? '../../image/jianpan.png' : '../../image/smiling.png',
     })
   },
 
@@ -143,7 +143,9 @@ Component({
    */
   clickedConfirm(){
     console.log('点击完成====' + this.data.keyWord);
-
+    // var myEventDetail = {data:this.data.keyWord} // detail对象，提供给事件监听函数
+    // var myEventOption = {} // 触发事件的选项
+    // this.triggerEvent('keyboardConfirm', myEventDetail, myEventOption)
   },
 
   /**
@@ -154,6 +156,15 @@ Component({
        return
      }
      console.log('发送====' + this.data.keyWord);
+
+     var myEventDetail = {data:this.data.keyWord} // detail对象，提供给事件监听函数
+     var myEventOption = {} // 触发事件的选项
+     this.triggerEvent('sendMessage', myEventDetail, myEventOption)
+
+     /** 发送关键字后，清空关键字 */
+     this.setData({
+       keyWord:'',
+     })
   },
 
   }

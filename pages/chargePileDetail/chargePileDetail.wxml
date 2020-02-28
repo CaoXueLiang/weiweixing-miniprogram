@@ -156,7 +156,7 @@
     </view>
 
     <!-- emotion组件 -->
-    <emotion-componment></emotion-componment>
+    <emotion-componment wx:if='{{isShowKeyboard}}' bind:sendMessage="onSendMessage" bind:keyboardConfirm = 'onKeyboardConfirm'></emotion-componment>
     
 </view>
 <!-- </scroll-view> -->

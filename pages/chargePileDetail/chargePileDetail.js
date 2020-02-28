@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-21 17:39:15
- * @LastEditTime: 2020-02-20 14:04:37
+ * @LastEditTime: 2020-02-28 16:18:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/pages/chargePileDetail/chargePileDetail.js
@@ -20,6 +20,7 @@ Page({
      isShowPingLun:false,   //是否显示评论
      isShowWenDa:false,     //是否显示问答
      canvasImageArray:[],   //Canvas图片数组，解决层级问题
+     isShowKeyboard:false,  //键盘是否显示
      segmentArray:[
        {name:'电站',isSelected:true},
        {name:'终端',isSelected:false},
@@ -195,6 +196,7 @@ Page({
       isShowZhongDuan:this.data.segmentArray[1].isSelected,
       isShowPingLun:this.data.segmentArray[2].isSelected,
       isShowWenDa:this.data.segmentArray[3].isSelected,
+      isShowKeyboard:this.data.segmentArray[3].isSelected ? true : false,
     })
   },
 
@@ -213,5 +215,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 点击键盘确认
+   */
+  onKeyboardConfirm(e){
+    console.log('点击键盘===='+ JSON.stringify(e.detail.data))
+  },
+
+  /**
+   * 点击发送按钮
+   */
+  onSendMessage: function(e){
+    // e.detail // 自定义组件触发事件时提供的detail对象
+    console.log('点击发送按钮===='+ JSON.stringify(e.detail.data))
+    wx.showToast({
+      title: e.detail.data,
+      icon: 'none',
+    })
+    
   }
+
 })
