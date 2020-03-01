@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-15 14:36:07
- * @LastEditTime: 2020-03-01 13:32:49
+ * @LastEditTime: 2020-03-01 14:08:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
@@ -253,9 +253,12 @@ module.exports = {
    * 预览excle文档
    */
   previewExcel(){
+    console.log('下载文档')
     wx.downloadFile({
       // 示例 url，并非真实存在
       url: 'https://github.com/CaoXueLiang/JianLi/raw/master/简历/个人简历.pdf',
+      // url:'https://github.com/CaoXueLiang/weiweixing-miniprogram/raw/master/互联网业务部每日工作计划汇总.xlsx',
+      
       success: function (res) {
         console.log('======='+JSON.stringify(res))
         const filePath = res.tempFilePath
