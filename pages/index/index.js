@@ -1,7 +1,7 @@
 /*
  * @Author: your title
  * @Date: 2020-01-15 14:20:52
- * @LastEditTime: 2020-02-21 11:37:34
+ * @LastEditTime: 2020-03-01 13:27:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/index/index.js
@@ -105,7 +105,8 @@ Page({
   * 点击头像
   */
  clickedAvatar(){
-    CommonManager.ShowMessage(this,'错误提示弹窗');
+    // CommonManager.ShowMessage(this,'错误提示弹窗');
+    CommonManager.previewExcel();
  },
 
  /**

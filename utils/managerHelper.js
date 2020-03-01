@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-15 14:36:07
- * @LastEditTime: 2020-02-21 11:32:31
+ * @LastEditTime: 2020-03-01 13:32:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /weiweixing-miniprogram/utils/managerHelper.js
@@ -247,6 +247,29 @@ module.exports = {
         }
       })
     });
+  },
+
+  /**
+   * 预览excle文档
+   */
+  previewExcel(){
+    wx.downloadFile({
+      // 示例 url，并非真实存在
+      url: 'https://github.com/CaoXueLiang/JianLi/raw/master/简历/个人简历.pdf',
+      success: function (res) {
+        console.log('======='+JSON.stringify(res))
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          success: function (res) {
+            console.log('打开文档成功')
+          },
+          fail:function(res){
+            console.log('失败')
+          },
+        })
+      }
+    })
   },
 
 }
